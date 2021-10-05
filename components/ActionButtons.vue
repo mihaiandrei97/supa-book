@@ -3,7 +3,7 @@
     <button
       v-if="!isMyList"
       @click="addToReadingList"
-      v-tooltip="'Add to Reading List'"
+      v-tooltip="addToReadingListTooltip"
       class="
         flex
         items-center
@@ -34,7 +34,8 @@
       </svg>
     </button>
     <button
-    v-if="isMyList"
+      @click="finish"
+      v-if="isMyList && status === 'IN_PROGRESS'"
       v-tooltip="'Finish Book'"
       class="
         flex
@@ -66,7 +67,8 @@
       </svg>
     </button>
     <button
-    v-if="isMyList"
+      @click="remove"
+      v-if="isMyList"
       v-tooltip="'Remove from list'"
       class="
         flex
@@ -101,21 +103,42 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   props: {
     isMyList: {
       type: Boolean,
       default: false
     },
+    status: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
     addToReadingList() {
-      this.$store.dispatch('setLoading');
+      if (!this.authenticated) return;
+      this.$emit('addToReadingList')
+    },
+    remove(){
+      this.$emit('remove')
+    },
+    finish(){
+      this.$emit('finish')
     }
-  },
-}
-</script>
 
+  },
+  computed: {
+    ...mapState(["authenticated"]),
+    addToReadingListTooltip() {
+      return this.authenticated
+        ? "Add to Reading List"
+        : "Please login to add a card to your Reading List";
+    }
+  }
+};
+</script>
 
 <style>
 .tooltip {

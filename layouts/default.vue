@@ -27,10 +27,11 @@
           Supa-Book
         </span>
       </div>
-      <Navbar />
+      <Navbar :authenticated="authenticated" />
     </div>
     <div class="w-full md:w-9/12 py-10 px-4">
-      <Nuxt />
+      <Nuxt keep-alive :keep-alive-props="{include: ['Homepage']}"/>
+
     </div>
   </div>
 </template>
@@ -39,10 +40,41 @@
 import { mapState } from 'vuex';
 
 export default {
+  data() {
+    return {
+      authenticated: null,
+      authListener: null,
+    };
+  },
   computed: {
     ...mapState([
       'loading',
     ])
   },
+  async mounted() {
+    /* When the app loads, check to see if the user is signed in */
+    /* also create a listener for when someone signs in or out */
+    const { data: authListener } = this.$supabase.auth.onAuthStateChange(() =>
+      this.checkUser()
+    );
+    this.authListener = authListener;
+    this.checkUser();
+  },
+  methods: {
+    async checkUser() {
+      const user = await this.$supabase.auth.user();
+      if (user) {
+        this.authenticated = true;
+        this.$store.dispatch('setAuthenticated')
+      } else {
+        this.authenticated = false;
+        this.$store.dispatch('clearAuthenticated')
+      }
+    },
+  },
+  beforeUnmount() {
+    this.authListener?.unsubscribe();
+  },
 };
 </script>
+

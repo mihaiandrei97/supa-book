@@ -3,6 +3,7 @@
     <label class="text-gray-700" for="name">
       <textarea
         :disabled="disabled"
+        :value="notes"
         class="
               flex-1
               appearance-none
@@ -25,6 +26,7 @@
         name="notes"
         rows="5"
         cols="40"
+        @input="onNotesChanged"
       >
       </textarea>
     </label>
@@ -38,6 +40,24 @@ export default {
       type: Boolean,
       default: true
     },
+    notes: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      timeout: null
+    }
+  },
+  methods: {
+    onNotesChanged($event) {
+      const value = $event.target.value
+      if (this.timeout) clearTimeout(this.timeout)
+        this.timeout = setTimeout(() => {
+          this.$emit('onNotesChanged', value)
+        }, 500)
+    }
   },
 }
 </script>

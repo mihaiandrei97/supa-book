@@ -25,15 +25,18 @@
       </button>
     </div>
     <LoadingCard :loading="loading" />
-    <div v-if="!loading">
-      <HomeCard v-for="item in items" :key="item.isbn" :item="item" />
-    </div>
+    <transition name="fade" mode="out-in">
+      <transition-group v-if="!loading" tag="div">
+        <HomeCard v-for="item in items" :key="item.isbn" :item="item" />
+      </transition-group>
+    </transition>
   </div>
 </template>
 
 <script>
 import { mapItem } from "@/utils";
 export default {
+  name: 'Homepage',
   data() {
     return {
       loading: true,
@@ -46,7 +49,7 @@ export default {
       this.loading = true;
       // https://liyasthomas.github.io/books/#fiction
       const result = await this.$axios.$get(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&startIndex=0&maxResults=6&langRestrict=en`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&startIndex=0&maxResults=40&langRestrict=en`
       );
 
       if (result.totalItems === 0) {
