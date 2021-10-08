@@ -78,7 +78,7 @@ export default {
       if (error) {
         console.log(error);
       } else {
-        this.$toast.success("Successfully modified Start Date", {
+        this.$toast.success("Successfully modified start date.", {
           position: "bottom-right",
           duration: 3000
         });
@@ -94,7 +94,7 @@ export default {
         return;
       }
 
-      if (status !== "FINISHED") {
+      if (this.status !== "FINISHED") {
         this.$toast.error("You need to finish the book first.", {
           position: "bottom-right",
           duration: 5000
@@ -111,7 +111,7 @@ export default {
       if (error) {
         console.log(error);
       } else {
-        this.$toast.success("Successfully modified Start Date", {
+        this.$toast.success("Successfully modified end date.", {
           position: "bottom-right",
           duration: 3000
         });

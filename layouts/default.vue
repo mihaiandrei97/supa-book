@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white dark:bg-dark-surface">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row min-h-screen">
+  <div class="bg-white dark:bg-dark-surface transition-colors duration-200 ">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row min-h-screen pb-2">
       <div
         v-if="loading"
         class="w-full h-full fixed top-0 left-0 bg-white opacity-75 z-50 flex justify-center items-center"
@@ -23,10 +23,6 @@
           class="flex items-center justify-start flex-row mx-auto md:flex-col lg:flex-row lg:mx-6 mt-10 w-52"
         >
         <div class=" flex justify-center items-center" style="font-size:25px;">📚</div>
-          <!-- <img
-            class="h-10"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/768px-Closed_Book_Icon.svg.png"
-          /> -->
           <span
             class="text-gray-600 dark:text-dark-accent ml-4 text-2xl font-bold"
           >
@@ -36,10 +32,11 @@
         <Navbar :authenticated="authenticated" />
       </div>
       <div class="w-full md:w-9/12 py-10 px-4">
-        <Nuxt keep-alive :keep-alive-props="{ include: ['Homepage'] }" />
+        <Nuxt :authenticated="authenticated" keep-alive :keep-alive-props="{ include: ['Homepage'] }" />
       </div>
       <DarkModeToggle />
     </div>
+    <Footer></Footer>
   </div>
 </template>
 

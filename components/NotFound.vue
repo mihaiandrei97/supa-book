@@ -209,6 +209,17 @@
       </g>
     </g>
   </svg>
-  <p class="bolt text-xl">No books found...</p>
+  <p class="bolt text-xl">{{message}}</p>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    message: {
+      type: String,
+      default: 'No books found...'
+    },
+  },
+}
+</script>

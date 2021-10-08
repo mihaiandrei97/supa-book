@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div v-if="!authenticated && !loading">
+      <NotFound message="You need to be logged in order to check this page." />
+    </div>
+    <div v-else>
+
+    
      <LoadingCard :loading="loading" :nbOfItems="3"/>
     <transition name="fade" mode="out-in">
       <transition-group v-if="!loading && items.length > 0" tag="div">
@@ -7,11 +13,13 @@
       </transition-group>
     </transition>
     <NotFound v-if="!loading && items.length === 0"/>
+    </div>
   </div>
 </template>
 
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: 'MyList',
   data() {
@@ -21,7 +29,7 @@ export default {
     };
   },
   methods: {
-    async fetchItems(query) {
+    async fetchItems() {
       this.loading = true;
       // https://liyasthomas.github.io/books/#fiction
       const { data: itemsFromMyList, error } = await this.$supabase
@@ -37,7 +45,14 @@ export default {
     },
   },
   async mounted() {
-    this.fetchItems();
-  }
+    if (this.authenticated) {
+      this.fetchItems();
+    } else {
+      this.loading = false;
+    }
+  },
+  computed: {
+    ...mapState(["authenticated"]),
+  },
 };
 </script>

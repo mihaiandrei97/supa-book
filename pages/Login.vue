@@ -1,20 +1,20 @@
 <template>
   <main class="flex justify-center mt-16">
     <div
-      class="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10"
+      class="flex flex-col w-full max-w-md px-4 py-8 bg-gray-100 rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10"
     >
       <div v-if="!submitted">
         <div
-          class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white"
+          class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-dark-accent"
         >
-          Login To Your Account
+          Send Magic Link
         </div>
         <div>
           <form @submit.prevent="signIn" autoComplete="off">
             <div class="flex flex-col mb-2">
               <div class="flex relative ">
                 <span
-                  class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm"
+                  class="rounded-l-md inline-flex  items-center px-3 border-t  border-l border-b   text-gray-500 shadow-sm text-sm bg-white border-gray-300 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-100"
                 >
                   <svg
                     width="15"
@@ -31,7 +31,7 @@
                 <input
                   type="text"
                   id="sign-in-email"
-                  class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  class=" rounded-r-lg flex-1 appearance-none border w-full py-2 px-4  text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent bg-white border-gray-300 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-100"
                   placeholder="Your email"
                   v-model="email"
                 />
@@ -41,7 +41,7 @@
             <div class="flex w-full mt-8">
               <button
                 type="submit"
-                class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                class="py-2 px-4  bg-green-800 hover:bg-green-700 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
               >
                 Login
               </button>
@@ -50,16 +50,13 @@
         </div>
       </div>
       <div v-if="submitted">
-        <div class="bg-white dark:bg-gray-800 p-2 text-center">
+        <div class="bg-gray-100 dark:bg-gray-800 p-2 text-center">
           
             <h2
-              class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl"
+              class="text-2xl font-extrabold text-gray-700 dark:text-gray-100 sm:text-2xl"
             >
-              <span class="block mb-4">
+              <span class="block mb-4 text-gray-900 dark:text-dark-accent">
                 Please check your email to sign in.
-              </span>
-              <span class="block text-indigo-500">
-                Have a nice day!
               </span>
             </h2>
         </div>
@@ -76,6 +73,7 @@ export default {
   }),
   methods: {
     async signIn() {
+      this.$store.dispatch("setLoading");
       /* signIn sends the user a magic link */
       const { email } = this;
       if (!email) return;
@@ -83,6 +81,7 @@ export default {
         email
       });
       this.submitted = true;
+      this.$store.dispatch("clearLoading");
     }
   }
 };

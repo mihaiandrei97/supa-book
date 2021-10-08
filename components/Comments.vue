@@ -54,7 +54,7 @@
         rounded-lg
         text-base
         focus:outline-none
-        focus:ring-2 focus:ring-purple-600
+        
         focus:border-transparent
         disabled:bg-gray-200
         bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-100

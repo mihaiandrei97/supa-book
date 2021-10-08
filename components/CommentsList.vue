@@ -8,7 +8,11 @@
       :key="comment.id"
       class="border border-gray-400 dark:border-gray-900 dark:bg-gray-800 shadow-md p-4 mb-4"
     >
+    <div class="flex justify-between">
+
       <StarRating v-model="comment.rating" :readonly="true" />
+      <span class="text-gray-500">{{comment.created_at.split('T')[0]}}</span>
+    </div>
       <p class="mt-1 text-gray-800 dark:text-dark-accent">{{ comment.content }}</p>
     </div>
   </div>
@@ -30,7 +34,7 @@ export default {
     // TODO: Show only comments for this book
     let { data: comments, error } = await this.$supabase
       .from("comments")
-      .select("id, rating, content")
+      .select("id, rating, content, created_at")
       .eq("book_id", this.bookId);
     if (error) {
       console.log(error);
@@ -41,9 +45,8 @@ export default {
     this.commentsSubscription = this.$supabase
       .from("comments")
       .on("INSERT", payload => {
-        console.log("Change received!", payload);
-        if(payload.new.bookId === this.bookId) {
-          this.comments.push(payload.new)
+        if(String(payload.new.book_id) === String(this.bookId)) {
+          this.comments = [...comments, payload.new]
         }
       })
       .subscribe();

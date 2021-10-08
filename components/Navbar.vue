@@ -1,9 +1,9 @@
 <template>
-  <nav class="mt-10 px-6 flex flex-wrap md:block">
+  <nav class="mt-10 px-6 flex flex-wrap md:block md:text-center">
     <NuxtLink
       exact
       to="/"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class=" md:justify-start hover:text-gray-800 flex-grow hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       href="#"
     >
       <svg
@@ -21,12 +21,11 @@
       <span class="mx-4 text-lg font-normal">
         Discover
       </span>
-      <span class="flex-grow text-right"></span>
     </NuxtLink>
     <NuxtLink
       exact
       to="/my-list"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600  dark:text-gray-400 rounded-lg"
+      class=" md:justify-start hover:text-gray-800 flex-grow hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600  dark:text-gray-400 rounded-lg"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +38,11 @@
       <span class="mx-4 text-lg font-normal">
         My List
       </span>
-      <span class="flex-grow text-right"> </span>
     </NuxtLink>
     <NuxtLink
       exact
       to="/finished"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class=" md:justify-start hover:text-gray-800 flex-grow hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       href="#"
     >
       <svg
@@ -60,20 +58,10 @@
       <span class="ml-4 text-lg font-normal">
         Finished
       </span>
-      <span class="flex-grow text-right">
-        <!-- <button
-          type="button"
-          class="w-6 h-6 text-xs  rounded-full text-white bg-red-500"
-        >
-          <span class="p-1">
-            7
-          </span>
-        </button> -->
-      </span>
     </NuxtLink>
     <NuxtLink
       to="/login"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class=" md:justify-start hover:text-gray-800 flex-grow hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       href="#"
       v-if="!authenticated"
     >
@@ -92,11 +80,11 @@
       <span class="ml-4 text-lg font-normal">
         Login
       </span>
-      <span class="flex-grow text-right"> </span>
+      
     </NuxtLink>
     <button
       v-if="authenticated"
-      class="w-full hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class="md:w-full  md:justify-start hover:text-gray-800 flex-grow hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       @click="logout"
     >
       <svg
@@ -111,10 +99,10 @@
           clip-rule="evenodd"
         />
       </svg>
-      <span class="ml-4 text-lg font-normal">
+      <span class="ml-4">
         Logout
       </span>
-      <span class="flex-grow text-right"> </span>
+      
     </button>
   </nav>
 </template>
