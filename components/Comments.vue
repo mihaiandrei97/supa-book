@@ -4,7 +4,7 @@
       <div class="col-span-2">
         <label
           for="message"
-          class="text-sm font-medium text-gray-900 block mb-2"
+          class="text-sm font-medium text-gray-900 block mb-2 dark:text-dark-accent"
           >Your message and rating</label
         >
         <div class="py-2">
@@ -15,6 +15,7 @@
       <button
         :disabled="disabled"
         type="button"
+        @click="submit"
         class="
           disabled:opacity-50
           justify-self-end
@@ -44,11 +45,10 @@
       class="
         flex-1
         appearance-none
-        border border-gray-300
+        border 
         w-full
         py-2
         px-4
-        bg-white
         text-gray-700
         placeholder-gray-400
         rounded-lg
@@ -57,14 +57,17 @@
         focus:ring-2 focus:ring-purple-600
         focus:border-transparent
         disabled:bg-gray-200
+        bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-100
       "
       id="comment"
       placeholder="Leave a comment..."
       name="comment"
       rows="5"
       cols="40"
+      v-model="comment"
     >
     </textarea>
+    <CommentsList :bookId="bookId" />
   </div>
 </template>
 
@@ -75,11 +78,23 @@ export default {
       type: Boolean,
       default: true,
     },
+    bookId: {
+      type: String,
+      default: ""
+    }
   },
   data() {
     return {
-      rating: 0,
+      rating: 3,
+      comment: ''
     };
+  },
+  methods: {
+    submit() {
+      this.$emit('onCommentSubmit', this.comment, this.rating)
+      this.rating = 3
+      this.comment = ''
+    }
   },
 };
 </script>

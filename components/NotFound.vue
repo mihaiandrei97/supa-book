@@ -1,5 +1,5 @@
 <template>
-<div class="flex justify-center flex-col items-center">
+<div class="flex justify-center flex-col items-center text-gray-800 dark:text-dark-accent">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="433.499"
@@ -209,6 +209,6 @@
       </g>
     </g>
   </svg>
-  <p class="bolt text-xl">No items found...</p>
+  <p class="bolt text-xl">No books found...</p>
   </div>
 </template>

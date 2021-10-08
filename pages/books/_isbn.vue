@@ -7,10 +7,10 @@
         <div class="flex">
           <div class="w-3/4 px-8 pb-6">
             <div class="mb-5">
-              <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">
+              <h5 class="text-gray-900 dark:text-dark-accent font-bold text-2xl tracking-tight mb-2">
                 {{ item.title }}
               </h5>
-              <p class="text-gray-800 font-light italic" v-if="item.authors">
+              <p class="text-gray-800 dark:text-dark-accent dark:text-opacity-80 font-light italic" v-if="item.authors">
                 {{ item.authors }}
               </p>
             </div>
@@ -30,7 +30,7 @@
               :id="itemFromMyList.id"
               :status="itemFromMyList.status"
             />
-            <div class="mt-4 text-justify">
+            <div class="mt-4 text-justify dark:text-gray-200">
               <small>{{ item.description }}</small>
             </div>
           </div>
@@ -54,6 +54,7 @@
           :isMyList="isMyList"
           :notes="itemFromMyList ? itemFromMyList.notes : ''"
           :id="itemFromMyList ? itemFromMyList.id : ''"
+          :bookId="item.id"
         />
       </div>
     </transition>

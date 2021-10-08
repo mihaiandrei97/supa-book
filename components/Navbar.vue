@@ -3,7 +3,7 @@
     <NuxtLink
       exact
       to="/"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       href="#"
     >
       <svg
@@ -24,8 +24,9 @@
       <span class="flex-grow text-right"></span>
     </NuxtLink>
     <NuxtLink
+      exact
       to="/my-list"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-100 rounded-lg dark:bg-gray-600"
+      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600  dark:text-gray-400 rounded-lg"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +42,9 @@
       <span class="flex-grow text-right"> </span>
     </NuxtLink>
     <NuxtLink
+      exact
       to="/finished"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       href="#"
     >
       <svg
@@ -59,19 +61,19 @@
         Finished
       </span>
       <span class="flex-grow text-right">
-        <button
+        <!-- <button
           type="button"
           class="w-6 h-6 text-xs  rounded-full text-white bg-red-500"
         >
           <span class="p-1">
             7
           </span>
-        </button>
+        </button> -->
       </span>
     </NuxtLink>
     <NuxtLink
       to="/login"
-      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       href="#"
       v-if="!authenticated"
     >
@@ -94,7 +96,7 @@
     </NuxtLink>
     <button
       v-if="authenticated"
-      class="w-full hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
+      class="w-full hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-2 transition-colors dark:hover:bg-gray-800 dark:hover:text-dark-accent duration-200  text-gray-600 dark:text-gray-400 rounded-lg "
       @click="logout"
     >
       <svg
@@ -119,13 +121,13 @@
 
 <script>
 export default {
-  props: ['authenticated'],
+  props: ["authenticated"],
   methods: {
     async logout() {
-      this.$store.dispatch('setLoading')
-      await this.$supabase.auth.signOut()
-      this.$store.dispatch('clearLoading')
-    },
-  },
-}
+      this.$store.dispatch("setLoading");
+      await this.$supabase.auth.signOut();
+      this.$store.dispatch("clearLoading");
+    }
+  }
+};
 </script>

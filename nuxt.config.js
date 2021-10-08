@@ -21,7 +21,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/main.css'
+    '@/assets/css/main.css',
   ], 
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -37,6 +37,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -53,6 +54,9 @@ export default {
   build: {
   },
   router: {
-    linkActiveClass: 'bg-gray-100 text-gray-800'
+    linkActiveClass: 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-dark-accent'
+  },
+  colorMode: {
+    classSuffix: '',
   },
 }

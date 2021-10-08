@@ -15,7 +15,11 @@
         rounded-full
         hover:bg-yellow-400
         hover:text-white
-        border-2 border-gray-900
+        border-2 border-gray-900 text-gray-900
+        dark:border-dark-accent
+        dark:text-dark-accent
+        dark:hover:border-yellow-300
+        dark:hover:text-white
         hover:border-yellow-300
         focus:outline-none
       "
@@ -51,6 +55,8 @@
         hover:text-white
         border-2 border-gray-900
         focus:outline-none
+        dark:border-dark-accent
+        dark:text-dark-accent
       "
     >
       <svg
@@ -84,6 +90,10 @@
         border-2 border-gray-900
         hover:border-red-800
         focus:outline-none
+        dark:border-dark-accent
+        dark:text-dark-accent
+        dark:hover:text-red-800
+        dark:hover:border-red-800
       "
     >
       <svg

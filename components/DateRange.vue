@@ -2,7 +2,7 @@
   <div>
     <div class="grid grid-cols-2 gap-6">
       <label class="text-gray-700" for="startDate">
-        <span>Start Date:</span>
+        <span class="dark:text-dark-accent">Start Date:</span>
         <input
           ref="startDate"
           :value="startDate"
@@ -10,24 +10,24 @@
           type="date"
           class="
             appearance-none
-            border border-gray-300
+            border 
             w-full
             py-1
             px-2
-            bg-white
             text-gray-700
             placeholder-gray-400
             rounded-lg
             text-base
             focus:outline-none
-            focus:ring-2 focus:ring-purple-600
+            focus:ring-2
             focus:border-transparent
             flex-1
+            bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-100
           "
         />
       </label>
       <label class="text-gray-700" for="endDate">
-        <span>End Date:</span>
+        <span class="dark:text-dark-accent">End Date:</span>
         <input
           :disabled="this.status !== 'FINISHED'"
           ref="endDate"
@@ -37,19 +37,19 @@
           class="
             disabled:opacity-70
             appearance-none
-            border border-gray-300
+            border
             w-full
             py-1
             px-2
-            bg-white
             text-gray-700
             placeholder-gray-400
             rounded-lg
             text-base
             focus:outline-none
-            focus:ring-2 focus:ring-purple-600
+            focus:ring-2
             focus:border-transparent
             flex-1
+            bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-100
           "
         />
       </label>

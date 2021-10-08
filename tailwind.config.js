@@ -8,7 +8,12 @@ module.exports = {
    ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dark-surface': '#282a36',
+        'dark-accent': '#50fa7b'
+      }
+    },
   },
   variants: {
     extend: {
@@ -17,4 +22,5 @@ module.exports = {
     },
   },
   plugins: [],
+  darkMode: 'class',
 }
