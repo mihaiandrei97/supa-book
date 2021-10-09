@@ -5,7 +5,7 @@
     style="min-height: 200px;"
   >
     <img
-      class="h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+      class="h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
       :src="item.imageLink"
       alt=""
       style="max-width: 128px;"

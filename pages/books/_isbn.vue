@@ -4,8 +4,8 @@
     <NotFound v-if="!loading && !item" />
     <transition name="fade" mode="out-in">
       <div v-if="!loading && item">
-        <div class="flex">
-          <div class="w-3/4 px-8 pb-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="order-2 md:order-1 w-full md:w-3/4 px-8 pb-6">
             <div class="mb-5">
               <h5 class="text-gray-900 dark:text-dark-accent font-bold text-2xl tracking-tight mb-2">
                 {{ item.title }}
@@ -13,6 +13,9 @@
               <p class="text-gray-800 dark:text-dark-accent dark:text-opacity-80 font-light italic" v-if="item.authors">
                 {{ item.authors }}
               </p>
+            </div>
+            <div class="my-4 text-gray-800 dark:text-dark-accent" v-if="!isMyList && !authenticated">
+              <p>You need to login in order to add the item to your list. </p>
             </div>
             <div class="mb-5">
               <ActionButtons
@@ -34,15 +37,17 @@
               <small>{{ item.description }}</small>
             </div>
           </div>
-          <div class="w-1/4">
+          <div class="order-1 md:order-2 w-full md:w-1/4">
             <img
               class="
                 max-h-full
-                w-full
+                w-auto
+                mx-auto
                 object-cover
                 rounded-t-lg
                 md:rounded-none md:rounded-l-lg
                 shadow-xl
+                mb-4 md:mb-0
               "
               :src="item.imageLink"
               alt=""
@@ -68,6 +73,8 @@ const STATUS = {
   IN_PROGRESS: "IN_PROGRESS",
   FINISHED: "FINISHED"
 };
+
+import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -206,6 +213,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(["authenticated"]),
     isMyList() {
       return this.itemFromMyList ? true : false;
     }

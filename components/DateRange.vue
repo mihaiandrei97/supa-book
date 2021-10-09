@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-2 gap-6">
+    <div class="block md:grid grid-cols-2 gap-6">
       <label class="text-gray-700" for="startDate">
         <span class="dark:text-dark-accent">Start Date:</span>
         <input
