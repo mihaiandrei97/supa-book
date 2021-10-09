@@ -1,69 +1,51 @@
-# supa-book
+# Supa-Book
 
-## Build Setup
+Discover and make notes about books you love. Supa-Book is a book manager made with supabase/nuxtjs and tailwind. Here you can manage what books you have read, take notes and post comments so that other users can see them.
 
-```bash
-# install dependencies
-$ npm install
+App hosted [here](https://supa-book.netlify.app/)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## List of team members
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+[@me](https://twitter.com/MihaiAdrianAnd1)
 
-# generate static project
-$ npm run generate
-```
+## Supabase:
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+- used for the magic link authentication
+- used to store data (for the books, comments, notes and contact form)
 
-## Special Directories
+## Features
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+- Visitators can search books by category/title or author.
+- Logged user:
+  - Can add books to his list;
+  - Can take notes;
+  - Can add comments;
+  - Can mark books as finished;
+  - Can add a start date and finished date for the specific book.
 
-### `assets`
+# Screenshoots
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+### User has the option to use a light theme or dark theme.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+![Light Theme](screenshots/light-theme.png "light theme")
+![Dark Theme](screenshots/dark-theme.png "dark theme")
 
-### `components`
+### User can add items to his reading list only after he is logged.
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+![Add to reading list](screenshots/add-to-reading-list.png "reading list")
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+### After a book is added to reading list, you can change the start date, add notes and write comments.
 
-### `layouts`
+![Book added to list](screenshots/book-added-to-list.png "book added")
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+### In this screenshot, you can see how it looks after you finished a book and when you try to add a comment.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+![Add comments](screenshots/add-comment.png "add comments")
 
+### Users can login using a magic link.
 
-### `pages`
+![Magic Link](screenshots/magic-link-login.png "magic link")
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+### Logged users can send suggestions using a contact form.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+![Contact](screenshots/contact.png "contact")
