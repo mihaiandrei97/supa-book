@@ -59,4 +59,7 @@ export default {
   colorMode: {
     classSuffix: '',
   },
+  generate: {
+    fallback: true
+  },
 }
