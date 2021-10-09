@@ -27,25 +27,25 @@ App hosted [here](https://supa-book.netlify.app/)
 
 ### User has the option to use a light theme or dark theme.
 
-![Light Theme](screenshots/light-theme.png "light theme")
-![Dark Theme](screenshots/dark-theme.png "dark theme")
+![Light Theme](/screenshots/light-theme.png "light theme")
+![Dark Theme](/screenshots/dark-theme.png "dark theme")
 
 ### User can add items to his reading list only after he is logged.
 
-![Add to reading list](screenshots/add-to-reading-list.png "reading list")
+![Add to reading list](/screenshots/add-to-reading-list.png "reading list")
 
 ### After a book is added to reading list, you can change the start date, add notes and write comments.
 
-![Book added to list](screenshots/book-added-to-list.png "book added")
+![Book added to list](/screenshots/book-added-to-list.png "book added")
 
 ### In this screenshot, you can see how it looks after you finished a book and when you try to add a comment.
 
-![Add comments](screenshots/add-comment.png "add comments")
+![Add comments](/screenshots/add-comment.png "add comments")
 
 ### Users can login using a magic link.
 
-![Magic Link](screenshots/magic-link-login.png "magic link")
+![Magic Link](/screenshots/magic-link-login.png "magic link")
 
 ### Logged users can send suggestions using a contact form.
 
-![Contact](screenshots/contact.png "contact")
+![Contact](/screenshots/contact.png "contact")
