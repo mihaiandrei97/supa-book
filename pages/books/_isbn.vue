@@ -108,7 +108,6 @@ export default {
       if (error) {
         console.log(error);
       } else {
-        console.log(itemFromMyList);
         this.itemFromMyList = itemFromMyList;
       }
       this.loading = false;
@@ -123,16 +122,12 @@ export default {
     }
     this.loading = false;
 
-    // Check if it is added to myList for current user. If yes, show add to reading list button. If not, show finish and remove
-    // If yes, show notes.
-    // TODO: Check if book is in comments db. If yes, add comments. Check if current user has notes for this book. If yes, add them here.
   },
   methods: {
     async addBookToLocalDb() {
       const { data, error } = await this.$supabase
         .from("books")
         .insert([{ ...this.item }]);
-      console.log({ ...this.item });
       if (error) {
         console.log(error);
       } else {

@@ -50,7 +50,6 @@ export default {
         }
       })
       .subscribe();
-      console.log(this.commentsSubscription)
   }
 };
 </script>

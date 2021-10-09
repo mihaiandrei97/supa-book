@@ -31,14 +31,12 @@ export default {
   methods: {
     async fetchItems() {
       this.loading = true;
-      // https://liyasthomas.github.io/books/#fiction
       const { data: itemsFromMyList, error } = await this.$supabase
         .from("usersbooks")
         .select("id, book_id, books(*)")
         .eq("user_id", await this.$supabase.auth.user()?.id)
         .eq("status", 'FINISHED')
       
-      console.log(itemsFromMyList)
       this.items = itemsFromMyList.map(item => item.books)
 
       this.loading = false;

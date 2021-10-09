@@ -99,7 +99,6 @@ export default {
           position: "bottom-right",
           duration: 5000
         });
-        console.log(this.$refs.endDate.value);
         this.$refs.endDate.value = this.endDate;
         return;
       }

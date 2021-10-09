@@ -83,7 +83,6 @@ export default {
     },
     async onCommentSubmit(content, rating) {
       this.$store.dispatch("setLoading");
-      console.log('submit', content, rating);
       const payload = {
         book_id: this.bookId,
         user_id: await this.$supabase.auth.user()?.id,

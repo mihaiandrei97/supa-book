@@ -37,16 +37,17 @@ export default {
   methods: {
     async fetchItems() {
       this.loading = true;
-      // https://liyasthomas.github.io/books/#fiction
-      const { data: itemsFromMyList, error, count } = await this.$supabase
+      const { data: itemsFromMyList, error } = await this.$supabase
         .from("usersbooks")
-        .select("id, book_id, books(*)", { count: "exact" })
+        .select("id, book_id, books(*)")
         .eq("user_id", await this.$supabase.auth.user()?.id)
         .eq("status", "IN_PROGRESS");
 
-      console.log(itemsFromMyList);
-      console.log(count);
-      this.items = itemsFromMyList.map(item => item.books);
+      if(error){
+        console.log(error);
+      } else {
+        this.items = itemsFromMyList.map(item => item.books);
+      }
 
       this.loading = false;
     }
